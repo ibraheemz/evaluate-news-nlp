@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Test</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="">Logo</div>
+      <div class="">navigation</div>
+    </header>
+
+    <main>
+      <section>
+        <form class="" onsubmit="return Client.handleSubmit(event)">
+          <textarea
+            id="name"
+            type="text"
+            name="input"
+            value=""
+            onblur=""
+            placeholder="Type your text here"
+            rows="5"
+            cols="50"
+          ></textarea>
+          <input
+            type="submit"
+            name=""
+            value="submit"
+            onclick="return Client.handleSubmit(event)"
+            onsubmit="return Client.handleSubmit(event)"
+          />
+        </form>
+      </section>
+
+      <section>
+        <strong>Form Results:</strong>
+        <ul id="results">
+          <li>
+            Ageement:
+            <p id="ageement"></p>
+          </li>
+
+          <li>
+            Subjectivity:
+            <p id="subjectivity"></p>
+          </li>
+
+          <li>
+            Score tag:
+            <p id="score_tag"></p>
+          </li>
+
+          <li>
+            Irony:
+            <p id="irony"></p>
+          </li>
+
+          <li>
+            Confidence:
+            <p id="confidence"></p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>This is a footer</p>
+    </footer>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
+  </body>
+</html>
