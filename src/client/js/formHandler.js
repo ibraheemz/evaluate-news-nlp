@@ -1,5 +1,7 @@
 import "regenerator-runtime/runtime";
 import { checkForText } from "./textChecker";
+import { getApiKey } from "./keyGetter";
+
 const handleSubmit = async (event) => {
   event.preventDefault();
 
@@ -8,7 +10,7 @@ const handleSubmit = async (event) => {
   console.log("::: Form Submitted :::");
 
   const baseURL = "https://api.meaningcloud.com/sentiment-2.1?key=";
-  const key = process.env.API_KEY;
+  const key = await Client.getApiKey();
 
   const response = await fetch(baseURL + key + formatedText)
     .then(
@@ -26,7 +28,6 @@ const handleSubmit = async (event) => {
       return body;
     })
     .catch((error) => console.log("error", error));
-  console.log(response);
 
   Client.checkForText(formText)
     ? ((document.getElementById("ageement").innerHTML = response.agreement),
